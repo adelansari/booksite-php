@@ -29,3 +29,4 @@ jobs:
         with:
           dep: deploy
           deployer-version: '7.0.0'
+          password: ${{ secrets.DEPLOY_PASSWORD }}
