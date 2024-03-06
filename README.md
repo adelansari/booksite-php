@@ -59,3 +59,9 @@ The visitor side of the site reads the book data from the chosen file and displa
 ## Admin Side
 
 The admin side of the site allows for adding, editing and deleting books. All changes to the books are saved in the data json file.
+
+## Reference
+
+The initial completion of this project can be found at my [GitHub repository](https://github.com/adelansari/PHP_lessons/tree/main/lecture/basics/final_project/booksite).
+
+The original project, created by Damien Kuosmanen, is available [here](https://github.com/jiivonen/PHP-booksite).
