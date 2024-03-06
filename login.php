@@ -68,7 +68,9 @@ if (isset($_POST['login'])) {
                     <input type="password" id="password" name="password">
                 </p>
                 <p><input type="submit" name="login" value="Log in"></p>
-                <small class="error"><?= $error ?></small>
+                <?php if (isset($error)) : ?>
+                    <small class="error"><?= $error ?></small>
+                <?php endif; ?>
             </form>
         </main>
     </div>
