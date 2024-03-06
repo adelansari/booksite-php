@@ -14,3 +14,24 @@
 
 // Redirect back to booksite.php. If you want to redirect to the exact page user came from, that's header("Location:" . $_SERVER["HTTP_REFERER"]);
 // And no, that's not a typo. It is HTTP_REFERER.
+
+
+$id = $_GET['id'] ?? null;
+$favorites = isset($_COOKIE['favorites']) ? explode(",", $_COOKIE['favorites']) : [];
+
+if (($key = array_search($id, $favorites)) !== false) {
+    unset($favorites[$key]);
+} else {
+    $favorites[] = $id;
+}
+
+// favorite book ids array to a string
+$favorites_string = implode(",", $favorites);
+
+$secondsInADay = 60 * 60 * 24; // 86400s or 1 day
+$daysBeforeExpiry = 30; // 30 days
+$expiryTime = time() + ($secondsInADay * $daysBeforeExpiry);
+
+// set cookie
+setcookie("favorites", $favorites_string, $expiryTime);
+echo json_encode(array('is_favorite' => in_array($id, $favorites)));
