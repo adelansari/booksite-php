@@ -41,26 +41,51 @@
             // Also, make sure to set the id parameter for each book, so the setfavorite.php page gets the information which book to favorite/unfavorite.
 
             // Read the file into array variable $books:
-            $json = file_get_contents("books.json");
-            $books = json_decode($json, true);
+            $books = json_decode(file_get_contents('books.json'), true);
 
+            // get genre
+            $genre = $_GET['genre'] ?? null;
+
+            // filter books based on genre
+            $filtered_books = [];
+            foreach ($books as $book) {
+                if ($genre === null || strtolower($book['genre']) === strtolower($genre)) {
+                    $filtered_books[] = $book;
+                }
+            }
             ?>
-            <h2>Genre Name or "All Books"</h2>
 
-            <section class="book">
-                <a class="bookmark fa fa-star-o" href="setfavorite.php?id=1"></a>
-                <h3>To Kill a Mockingbird</h3>
-                <p class="publishing-info">
-                    <span class="author">Harper Lee</span>,
-                    <span class="year">1960</span>
-                </p>
-                <p class="description">
-                    Harper Lee's masterpiece explores racial injustice and moral growth through the eyes of a young girl in the American South.
-                </p>
-            </section>
+            <h2><?php echo $genre !== null ? ucfirst($genre) : 'All Books'; ?></h2>
 
+            <?php foreach ($filtered_books as $book) : ?>
+                <?php
+                // get the favorite book ids from the cookie and check if the book is favorite
+                $favorites = isset($_COOKIE['favorites']) ? explode(",", $_COOKIE['favorites']) : [];
+                $is_favorite = in_array($book['id'], $favorites);
+                ?>
+                <section class="book">
+                    <a class="bookmark fa <?php echo $is_favorite ? 'fa-star' : 'fa-star-o'; ?>" data-id="<?php echo $book['id']; ?>"></a>
+                    <h3><?php echo $book['title']; ?></h3>
+                    <p class="publishing-info">
+                        <span class="author"><?php echo $book['author']; ?></span>,
+                        <span class="year"><?php echo $book['publishing_year']; ?></span>
+                    </p>
+                    <p class="genre"><?php echo $book['genre']; ?></p>
+                    <p class="description"><?php echo $book['description']; ?></p>
+                </section>
+            <?php endforeach; ?>
         </main>
     </div>
+    <script>
+        document.querySelectorAll('.bookmark').forEach(icon => {
+            icon.addEventListener('click', async event => {
+                const response = await fetch(`setfavorite.php?id=${icon.dataset.id}`);
+                const data = await response.json();
+                icon.classList.toggle('fa-star', data.is_favorite);
+                icon.classList.toggle('fa-star-o', !data.is_favorite);
+            });
+        });
+    </script>
 </body>
 
 </html>
