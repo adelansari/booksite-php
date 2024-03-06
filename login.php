@@ -1,13 +1,35 @@
 <?php
-    // Check if the GET parameter "logout" is set. If so, log the user out.
+session_start();
 
-    // Check if the user is already logged in. If so, redirect to admin.php.
+// Check if the GET parameter "logout" is set. If so, log the user out.
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header('Location: login.php');
+    exit;
+}
 
-    // Check if the form has been sent. If so, check the username and password and if correct, log the user in and redirect to admin.php.
-    // If not correct, show the error message near the form.
+// Check if the user is already logged in. If so, redirect to admin.php.
+if (isset($_SESSION['login'])) {
+    header('Location: admin.php');
+    exit;
+}
+
+// Check if the form has been sent. If so, check the username and password and if correct, log the user in and redirect to admin.php.
+// If not correct, show the error message near the form.
+[$correct_username, $correct_password] = ['admin', 'pass'];
+if (isset($_POST['login'])) {
+    if ($_POST['username'] === $correct_username && $_POST['password'] === $correct_password) {
+        $_SESSION['login'] = true;
+        header('Location: admin.php');
+        exit;
+    } else {
+        $error = 'Invalid username or password';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +37,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="booksite.css">
 </head>
+
 <body>
     <div id="container">
         <header>
@@ -45,8 +68,10 @@
                     <input type="password" id="password" name="password">
                 </p>
                 <p><input type="submit" name="login" value="Log in"></p>
+                <small class="error"><?= $error ?></small>
             </form>
         </main>
-    </div>    
+    </div>
 </body>
+
 </html>
