@@ -1,5 +1,10 @@
 # Booksite Project
 
+You can test the website here:
+
+- [Home Page](http://adelansari.great-site.net/booksite.php)
+- [Admin Login](http://adelansari.great-site.net/login.php)
+
 ## Introduction
 
 This project is a small book site that demonstrates the use of various PHP functionalities such as conditionals, loops, form input, sessions, cookies, and file handling. The site allows visitors to view books by genre and favorite or unfavorite books. An optional admin side allows for the addition and deletion of books.
