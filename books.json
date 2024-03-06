@@ -24,12 +24,12 @@
     "genre": "Romance"
   },
   {
-    "id": 4,
+    "id": "4",
     "title": "Moby-Dick",
-    "description": "Herman Melville's epic tale follows Captain Ahab's obsessive quest for revenge against the white whale.",
     "author": "Herman Melville",
-    "publishing_year": 1851,
-    "genre": "Adventure"
+    "publishing_year": "1851",
+    "genre": "Adventure",
+    "description": "Herman Melville's epic tale follows Captain Ahab's obsessive quest for revenge against the white whale."
   },
   {
     "id": 5,
@@ -66,8 +66,8 @@
   {
     "id": 9,
     "title": "Jane Eyre",
-    "description": "Charlotte Brontë's novel tells the story of an orphaned governess who falls in love with her enigmatic employer.",
-    "author": "Charlotte Brontë",
+    "description": "Charlotte Bront\u00eb's novel tells the story of an orphaned governess who falls in love with her enigmatic employer.",
+    "author": "Charlotte Bront\u00eb",
     "publishing_year": 1847,
     "genre": "Romance"
   },
@@ -98,8 +98,8 @@
   {
     "id": 13,
     "title": "The Shadow of the Wind",
-    "description": "Carlos Ruiz Zafón's novel follows Daniel Sempere as he discovers a mysterious book and becomes entangled in its secrets, leading him on a journey through post-war Barcelona.",
-    "author": "Carlos Ruiz Zafón",
+    "description": "Carlos Ruiz Zaf\u00f3n's novel follows Daniel Sempere as he discovers a mysterious book and becomes entangled in its secrets, leading him on a journey through post-war Barcelona.",
+    "author": "Carlos Ruiz Zaf\u00f3n",
     "publishing_year": 2001,
     "genre": "Mystery"
   },
@@ -152,11 +152,19 @@
     "genre": "Mystery"
   },
   {
-    "id": 20,
+    "id": "20",
     "title": "Memoirs of a Geisha",
-    "description": "Arthur Golden's historical novel tells the story of Sayuri, a young Japanese girl who trains to become a geisha in pre-World War II Japan.",
     "author": "Arthur Golden",
-    "publishing_year": 1997,
-    "genre": "Historical Fiction"
+    "publishing_year": "1997",
+    "genre": "Historical Fiction",
+    "description": "Arthur Golden's historical novel tells the story of Sayuri, a young Japanese girl who trains to become a geisha in pre-World War II Japan."
+  },
+  {
+    "id": "21",
+    "title": "Testing Book 101",
+    "author": "Adel",
+    "publishing_year": "2024",
+    "genre": "Historical Fiction",
+    "description": "Testing add book with historical fiction genre wohooo"
   }
 ]
