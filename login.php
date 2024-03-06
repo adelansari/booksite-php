@@ -46,15 +46,15 @@ if (isset($_POST['login'])) {
         <nav id="main-navi">
             <ul>
                 <li><a href="booksite.php">Home</a></li>
-                <li><a href="booksite.php?category=adventure">Adventure</a></li>
-                <li><a href="booksite.php?category=classic">Classic Literature</a></li>
-                <li><a href="booksite.php?category=coming-of-age">Coming-of-age</a></li>
-                <li><a href="booksite.php?category=fantasy">Fantasy</a></li>
-                <li><a href="booksite.php?category=historical">Historical Fiction</a></li>
-                <li><a href="booksite.php?category=horror">Horror</a></li>
-                <li><a href="booksite.php?category=mystery">Mystery</a></li>
-                <li><a href="booksite.php?category=romance">Romance</a></li>
-                <li><a href="booksite.php?category=scifi">Science Fiction</a></li>
+                <li><a href="booksite.php?genre=Adventure">Adventure</a></li>
+                <li><a href="booksite.php?genre=Classic Literature">Classic Literature</a></li>
+                <li><a href="booksite.php?genre=Coming-of-age">Coming-of-age</a></li>
+                <li><a href="booksite.php?genre=Fantasy">Fantasy</a></li>
+                <li><a href="booksite.php?genre=Historical Fiction">Historical Fiction</a></li>
+                <li><a href="booksite.php?genre=Horror">Horror</a></li>
+                <li><a href="booksite.php?genre=Mystery">Mystery</a></li>
+                <li><a href="booksite.php?genre=Romance">Romance</a></li>
+                <li><a href="booksite.php?genre=Science Fiction">Science Fiction</a></li>
             </ul>
         </nav>
         <main>
